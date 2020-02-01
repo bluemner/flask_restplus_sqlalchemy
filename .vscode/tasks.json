@@ -26,10 +26,10 @@
             ],
             "problemMatcher": []
         },
-        {   
+        {
             "label": "Doumentation Service",
             "type": "shell",
-            "command":"python3",
+            "command": "python3",
             "args": [
                 "-m",
                 "http.server",
@@ -38,7 +38,31 @@
                 "127.0.0.1",
                 "--directory",
                 "${workspaceFolder}/docs/build/html"
+            ]
+        },
+        {
+            "label": "Lint ALL",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "-m",
+                "pylint",
+                "--rcfile=${workspaceFolder}/.pylintrc",
+                "flask_restplus_sqlalchemy"
             ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Bandit",
+            "type": "shell",
+            "command": "python3",
+            "args": [
+                "-m",
+                "bandit",
+                "-r",
+                "flask_restplus_sqlalchemy"
+            ],
+            "problemMatcher": []
         }
     ]
 }

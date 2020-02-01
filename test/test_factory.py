@@ -19,6 +19,7 @@ class TestFactory(unittest.TestCase):
 
         cls.flask_app = Flask(__name__)
         cls.flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+        cls.flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         cls.api: Api = Api(
             version='x',
             title='test_api',

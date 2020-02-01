@@ -11,8 +11,8 @@ from flask_restplus import Api, fields, Model
 class ApiModelFactory:
     """
         Api Model Factory takes in Flask Rest API and SqlAlchemy models then
-        generates Flask Rest API Models needed for use with swagger and 
-        marshal 
+        generates Flask Rest API Models needed for use with swagger and
+        marshal
 
 
         :param Api api: flask_restplus Api instance to which is needed for \
