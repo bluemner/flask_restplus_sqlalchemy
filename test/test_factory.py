@@ -2,11 +2,13 @@
 """
 import unittest
 
-from sqlalchemy import BigInteger, Column, Integer, String, DateTime, Date
+from sqlalchemy import (BigInteger, Column, Integer, String, DateTime, Date,
+                        Numeric, Boolean, Float)
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 from flask_restplus import Api
 from flask_restplus_sqlalchemy import ApiModelFactory
+
 
 class TestFactory(unittest.TestCase):
     """Test Factory Logic
@@ -28,8 +30,7 @@ class TestFactory(unittest.TestCase):
             description='Test')
         db: SQLAlchemy = SQLAlchemy()
 
-
-        class Person(db.Model): # pylint: disable=unused-variable
+        class Person(db.Model):  # pylint: disable=unused-variable
             """ Person Entity
             """
             __tablename__ = "person"
@@ -40,11 +41,11 @@ class TestFactory(unittest.TestCase):
                 nullable=False
             )
             created_on: Column = Column(DateTime, nullable=False)
+            active: Column = Column(Boolean, nullable=False)
             birth: Column = Column(Date, nullable=False)
             first_name: Column = Column(String(100), nullable=False)
             middle_name: Column = Column(String(100), nullable=True)
             last_name: Column = Column(String(100), nullable=False)
-
 
         class Fake(db.Model):
             """ Abstract entity that should not be placed into API Model factory
@@ -52,8 +53,7 @@ class TestFactory(unittest.TestCase):
             __tablename__ = "fake"
             __abstract__ = True
 
-
-        class NotFake(Fake): # pylint: disable=unused-variable
+        class NotFake(Fake):  # pylint: disable=unused-variable
             """ Inherits abstract class so should appear
             """
             __tablename__ = "not_fake"
@@ -62,8 +62,8 @@ class TestFactory(unittest.TestCase):
                 primary_key=True,
                 nullable=False
             )
-            do_care: Column = Column(String(100), nullable=False)
-
+            do_care: Column = Column(Numeric, nullable=False)
+            do_alt: Column = Column(Float, nullable=False)
 
         cls.db = db
         # Note: How init must be called before the factory in called
@@ -83,7 +83,8 @@ class TestFactory(unittest.TestCase):
     def test_missing(self):
         """ Verify object throws expection as it is not database class
         """
-        self.assertRaises(Exception, self.api_model_factory.get_entity, 'object')
+        self.assertRaises(
+            Exception, self.api_model_factory.get_entity, 'object')
 
     def test_person(self):
         """ Check if person is in the Factory model
