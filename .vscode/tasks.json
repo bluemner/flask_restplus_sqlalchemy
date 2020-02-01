@@ -4,25 +4,48 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "API - Doc",
+            "label": "sphinx-apidoc",
             "type": "shell",
             "command": "sphinx-apidoc",
             "args": [
                 "-o",
-                "${workspaceFolder}/docs/source/",
+                "${workspaceFolder}/doc_src/source/",
                 "${workspaceFolder}/flask_restplus_sqlalchemy/"
             ],
             "problemMatcher": []
         },
         {
-            "label": "API - Make",
+            "label": "Sphinx Documentation : Make",
             "type": "shell",
             "command": "sphinx-build",
+            "dependsOn": "sphinx-apidoc",
             "args": [
                 "-M",
                 "html",
-                "${workspaceFolder}/docs/source",
-                "${workspaceFolder}/docs/build"
+                "${workspaceFolder}/doc_src/source",
+                "${workspaceFolder}/doc_src/build"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Sphinx Documentation : Copy",
+            "type": "shell",
+            "command": "cp",
+            "args": [
+                "-rf",
+                "${workspaceFolder}/doc_src/build/html/.",
+                "${workspaceFolder}/docs"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Coverage : Copy",
+            "type": "shell",
+            "command": "cp",
+            "args": [
+                "-rf",
+                "${workspaceFolder}/htmlcov/",
+                "${workspaceFolder}/docs/cover/"
             ],
             "problemMatcher": []
         },
@@ -37,7 +60,7 @@
                 "--bind",
                 "127.0.0.1",
                 "--directory",
-                "${workspaceFolder}/docs/build/html"
+                "${workspaceFolder}/doc_src/build/html"
             ],
             "problemMatcher": []
         },

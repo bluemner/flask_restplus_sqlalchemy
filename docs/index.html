@@ -1,0 +1,328 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flask RestPlus SQLAlchemy &mdash; flask_restplus_sqlalchemy 0.0.1b1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="flask_restplus_sqlalchemy 0.0.1b1 documentation" href="#"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> flask_restplus_sqlalchemy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Flask RestPlus SQLAlchemy</a><ul>
+<li><a class="reference internal" href="#module-flask_restplus_sqlalchemy.factory">flask_restplus_sqlalchemy.factory module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">flask_restplus_sqlalchemy</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Flask RestPlus SQLAlchemy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flask-restplus-sqlalchemy">
+<h1>Flask RestPlus SQLAlchemy<a class="headerlink" href="#flask-restplus-sqlalchemy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-flask_restplus_sqlalchemy.factory">
+<span id="flask-restplus-sqlalchemy-factory-module"></span><h2>flask_restplus_sqlalchemy.factory module<a class="headerlink" href="#module-flask_restplus_sqlalchemy.factory" title="Permalink to this headline">¶</a></h2>
+<p>Api Model  Factory
+Contains instace of factory for use by swagger</p>
+<dl class="class">
+<dt id="flask_restplus_sqlalchemy.factory.ApiModelFactory">
+<em class="property">class </em><code class="descclassname">flask_restplus_sqlalchemy.factory.</code><code class="descname">ApiModelFactory</code><span class="sig-paren">(</span><em>api: flask_restplus.api.Api</em>, <em>db: flask_sqlalchemy.SQLAlchemy</em>, <em>logger=&lt;Logger flask_restplus_sqlalchemy.factory (WARNING)&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#flask_restplus_sqlalchemy.factory.ApiModelFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Api Model Factory takes in SqlAlchemy models and generats swagger docs</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>api</strong> (<em>Api</em>) – flask_restplus Api instance to which is needed for                     api.model function call</li>
+<li><strong>db</strong> (<em>SQLAlchemy</em>) – instance with the models load, failure to do             correct initialization order will result in error</li>
+<li><strong>logger</strong> (<em>Logger</em>) – logging instance will use <code class="docutils literal notranslate"><span class="pre">get_logger(__name__)</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Any model that you wish to display must not have             <code class="docutils literal notranslate"><span class="pre">__abstract__=True</span></code> as this will make it hidden.</p>
+</div>
+<dl class="staticmethod">
+<dt id="flask_restplus_sqlalchemy.factory.ApiModelFactory.auto_generate_meta_form">
+<em class="property">static </em><code class="descname">auto_generate_meta_form</code><span class="sig-paren">(</span><em>model</em><span class="sig-paren">)</span> &#x2192; dict<a class="headerlink" href="#flask_restplus_sqlalchemy.factory.ApiModelFactory.auto_generate_meta_form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates the dict meta form needed by <cite>api.model</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>model</strong> (<em>any</em>) – the flask model</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Intermidate form needed for <cite>api.model</cite></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flask_restplus_sqlalchemy.factory.ApiModelFactory.entities">
+<code class="descname">entities</code><em class="property"> = {}</em><a class="headerlink" href="#flask_restplus_sqlalchemy.factory.ApiModelFactory.entities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dict with <code class="docutils literal notranslate"><span class="pre">__tablename__,</span> <span class="pre">Model</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="flask_restplus_sqlalchemy.factory.ApiModelFactory.get_entity">
+<code class="descname">get_entity</code><span class="sig-paren">(</span><em>table_name: str</em><span class="sig-paren">)</span> &#x2192; flask_restplus.model.Model<a class="headerlink" href="#flask_restplus_sqlalchemy.factory.ApiModelFactory.get_entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to get entity by name from dict of entities</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>table_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – the table name will match what you have in                     __tablename__ for a given model.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Table Api Model from list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">flask_restplus.model.Model</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.8)"><strong>Exception</strong></a> – Table Name was not found,                 Check that you have not called this function be for initlizing the                <code class="docutils literal notranslate"><span class="pre">db:</span> <span class="pre">SQLAlchemy</span></code> object with the models</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flask_restplus_sqlalchemy.factory.ApiModelFactory.logger">
+<code class="descname">logger</code><em class="property"> = None</em><a class="headerlink" href="#flask_restplus_sqlalchemy.factory.ApiModelFactory.logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logger, you can disable by sending out put to null or None</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="flask_restplus_sqlalchemy.factory.ApiModelFactory.python_to_flask">
+<em class="property">static </em><code class="descname">python_to_flask</code><span class="sig-paren">(</span><em>python_type: type</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#flask_restplus_sqlalchemy.factory.ApiModelFactory.python_to_flask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts python types to flask types</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>python_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.8)"><em>type</em></a>) – type that is to be converted into flask type</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">flask type represented as a string</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="flask_restplus_sqlalchemy.factory.ApiModelFactory.schema">
+<code class="descname">schema</code><em class="property"> = {}</em><a class="headerlink" href="#flask_restplus_sqlalchemy.factory.ApiModelFactory.schema" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intermediate form of Use By <cite>api.model</cite></p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Brandon Bluemner.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Sphinx-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1b1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
