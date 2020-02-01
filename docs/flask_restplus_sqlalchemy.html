@@ -163,7 +163,9 @@ Contains instace of factory for use by swagger</p>
 <dt id="flask_restplus_sqlalchemy.factory.ApiModelFactory">
 <em class="property">class </em><code class="descclassname">flask_restplus_sqlalchemy.factory.</code><code class="descname">ApiModelFactory</code><span class="sig-paren">(</span><em>api: flask_restplus.api.Api</em>, <em>db: flask_sqlalchemy.SQLAlchemy</em>, <em>logger=&lt;Logger flask_restplus_sqlalchemy.factory (WARNING)&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#flask_restplus_sqlalchemy.factory.ApiModelFactory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Api Model Factory takes in SqlAlchemy models and generats swagger docs</p>
+<p>Api Model Factory takes in Flask Rest API and SqlAlchemy models then
+generates Flask Rest API Models needed for use with swagger and
+marshal</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
