@@ -19,7 +19,7 @@ with open(path.join(here, 'requirements-dev.txt')) as f:
 
 
 setup(
-    name='sampleproject',
+    name='flask_restplus_sqlalchemy',
     version=__version__,
     description='Flask RestPlus SqlAlchemy',
     long_description=long_description,
