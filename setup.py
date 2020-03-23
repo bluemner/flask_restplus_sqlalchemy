@@ -24,16 +24,15 @@ setup(
     description='Flask RestPlus SqlAlchemy',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/bluemner/flask_restplus_sqlalchemy',
+    url='https://bluemner.github.io/flask_restplus_sqlalchemy/',
     author='Brandon Bluemner',
-    author_email='flask_restplus_sqlalchemy@betacore.dev',
     classifiers=[
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Restful API  :: Database',
+        'Framework :: Flask',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
@@ -51,7 +50,7 @@ setup(
     },
 
     project_urls={
-        'Bug Reports': 'https://github.com/pypa/sampleproject/issues',
-        'Source': 'https://github.com/pypa/sampleproject/',
+        'Bug Reports': 'https://github.com/bluemner/flask_restplus_sqlalchemy/issues',
+        'Source': 'https://github.com/bluemner/flask_restplus_sqlalchemy',
     },
 )
