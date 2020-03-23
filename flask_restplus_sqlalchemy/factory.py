@@ -36,6 +36,7 @@ class ApiModelFactory:
     entities: Dict[str, Model] = {}
     """ Dict with ``__tablename__, Model``
     """
+
     def __init__(self, api: Api, db: SQLAlchemy, logger=getLogger(__name__)):
         self.logger = logger
         models = db.metadata.tables.items()
@@ -49,6 +50,22 @@ class ApiModelFactory:
             self.entities[table_name] = api.model(
                 table_name, self.schema[schema_name])
         logger.info('Factory Online')
+
+    @staticmethod
+    def get_python_type(column) -> type:
+        """
+            Get the python type
+        """
+        try:
+            if hasattr(column.type, 'impl') and \
+                    hasattr(column.type, 'impl.python_type'):
+                return column.type.impl.python_type
+
+            if hasattr(column.type, 'python_type'):
+                return column.type.python_type
+            return type(column.type)
+        except Exception:  # pylint: disable=broad-except
+            return type(column.type)
 
     @staticmethod
     def auto_generate_meta_form(model) -> dict:
@@ -66,8 +83,7 @@ class ApiModelFactory:
         columns: List = __table__.columns
 
         for column in columns:
-            python_type: type = column.type.impl.python_type \
-                if hasattr(column.type, 'impl') else column.type.python_type
+            python_type: type = ApiModelFactory.get_python_type(column)
             name: str = column.name
             documentation: str = column.doc
             nullable = column.nullable
