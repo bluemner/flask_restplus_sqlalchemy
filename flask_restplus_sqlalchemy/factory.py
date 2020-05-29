@@ -2,6 +2,7 @@
     Contains instace of factory for use by swagger
 """
 import datetime
+import decimal
 from logging import Logger, getLogger
 from typing import List, Dict
 from flask_sqlalchemy import SQLAlchemy
@@ -109,7 +110,7 @@ class ApiModelFactory:
         """
         if python_type is int:
             return 'Integer'
-        if python_type is float:
+        if python_type in [float, decimal.Decimal]:
             return 'Float'
         if python_type is bool:
             return 'Boolean'
