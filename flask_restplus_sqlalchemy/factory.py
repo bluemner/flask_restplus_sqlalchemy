@@ -58,7 +58,7 @@ class ApiModelFactory:
         """
         try:
             if hasattr(column.type, 'impl'):
-                if hasattr(column.type, 'impl.python_type'):
+                if hasattr(column.type.impl, 'python_type'):
                     return column.type.impl.python_type
                 return type(column.type.impl)
             if hasattr(column.type, 'python_type'):
